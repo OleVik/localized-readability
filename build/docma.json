@@ -14,7 +14,7 @@
   },
   "app": {
     "title": "Localized Readability",
-    "base": "/",
+    "base": "/localized-readability",
     "favicon": "./build/favicon.ico",
     "routing": "path",
     "server": "github"
