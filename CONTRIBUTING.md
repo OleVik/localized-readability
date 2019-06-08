@@ -29,7 +29,7 @@ Do:
 
 Don't:
 
-* Use inappropriate
+* Use inappropriate language
 * Waste time or resources on anything not related to the code or project
 * Publish private information
 
