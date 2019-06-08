@@ -105,7 +105,7 @@ This returns a string of highlighted text, wherein the `p`-tag is used for parag
 
 It is advised not to run the Highlighter synchronously in a browser, and to consider offsetting each type of highlighting if possible. The paragraph- and sentence-highlighting is much simpler in this regard, and can fairly safely be ran together on medium-length inputs. Word-highlighting is much more resource intensive, as each word has to have its syllables counted, and can take several seconds even on short-length inputs.
 
-Alongside the [Jest tests in the test-folder in the repository](http://github.com/OleVik/localized-readability/) there is an `index.html`-file which demonstrates running the Parser and Highlighter asynchronously.
+In the [test/browser folder](https://github.com/OleVik/localized-readability/tree/master/test/browser) there are an html-files which demonstrates running the Parser and Highlighter asynchronously, for various languages.
 
 ## API
 
