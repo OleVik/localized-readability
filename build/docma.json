@@ -1,0 +1,76 @@
+{
+  "debug": 1,
+  "src": ["./index.js", "./src/**/*.js"],
+  "assets": {
+    "/img": ["./build/*.{png,ico}"]
+  },
+  "dest": "./docs",
+  "clean": true,
+  "jsdoc": {
+    "package": true,
+    "module": true,
+    "hierarchy": true,
+    "sort": "grouped"
+  },
+  "app": {
+    "title": "Localized Readability",
+    "base": "/",
+    "favicon": "./build/favicon.ico",
+    "routing": "path",
+    "server": "github"
+  },
+  "template": {
+    "path": "zebra",
+    "options": {
+      "title": {
+        "label": "Localized Readability"
+      },
+      "logo": {
+        "dark": "img/logo-black.png",
+        "light": "img/logo-white.png"
+      },
+      "navbar": {
+        "enabled": true,
+        "fixed": true,
+        "dark": false,
+        "animations": true,
+        "menu": [
+          {
+            "label": "Docs",
+            "iconClass": "fas fa-book",
+            "href": "https://github.com/OleVik/localized-readability",
+            "target": "_blank"
+          },
+          {
+            "label": "Download",
+            "iconClass": "fas fa-cloud-download-alt",
+            "items": [
+              {
+                "label": "<code>npm i localized-readability</code>",
+                "href": "https://www.npmjs.com/package/localized-readability",
+                "target": "_blank"
+              },
+              {
+                "label": "Releases",
+                "href": "https://github.com/OleVik/localized-readability/releases",
+                "target": "_blank"
+              },
+              { "separator": true },
+              {
+                "label": "Change Log",
+                "href": "https://github.com/OleVik/localized-readability/blob/master/CHANGELOG.md",
+                "target": "_blank"
+              }
+            ]
+          },
+          {
+            "label": "GitHub",
+            "iconClass": "fab fa-github",
+            "href": "https://github.com/OleVik/localized-readability",
+            "target": "_blank"
+          }
+        ]
+      }
+    }
+  }
+}

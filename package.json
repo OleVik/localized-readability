@@ -1,0 +1,92 @@
+{
+  "name": "localized-readability",
+  "description": "Generate readability statistics with localized options.",
+  "version": "1.0.0",
+  "author": "Ole Vik <git@olevik.net> (https://olevik.me/",
+  "bugs": "https://github.com/OleVik/localized-readability/issues",
+  "contributors": [
+    "Ole Vik <git@olevik.net> (https://olevik.me/)"
+  ],
+  "dependencies": {
+    "@fluid-project/hyphenation-patterns": "^0.2.2-dev.20181115T211247Z.d313a52",
+    "automated-readability": "^1.0.3",
+    "coleman-liau": "^1.0.3",
+    "flesch-kincaid": "^1.0.3",
+    "fs-extra": "^8.0.1",
+    "hypher": "^0.2.5",
+    "mdast-util-to-nlcst": "^3.2.2",
+    "nlcst-to-string": "^2.0.2",
+    "parse-latin": "^4.2.0",
+    "remark": "^10.0.1",
+    "smog-formula": "^1.0.3",
+    "unist-util-map": "^1.0.4",
+    "unist-util-select": "^2.0.0",
+    "vfile": "^4.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "docma": "^3.2.2",
+    "dotenv": "^8.0.0",
+    "eslint": "^5.16.0",
+    "fixpack": "^2.3.1",
+    "http-server": "^0.11.1",
+    "jest": "^24.8.0",
+    "jsdoc-to-markdown": "^5.0.0",
+    "parse-english": "^4.1.2",
+    "promise-worker": "^2.0.1",
+    "simplifyify": "^7.0.2",
+    "tinyify": "^2.5.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/*.js"
+    ]
+  },
+  "jsdelivr": "dist/localized-readability.min.js",
+  "keywords": [
+    "automated readability index",
+    "characters",
+    "coleman-liau",
+    "flesch",
+    "flesch-kincaid",
+    "letters",
+    "lix",
+    "localized",
+    "long words",
+    "paragraphs",
+    "periods",
+    "polysillabic words",
+    "punctuations",
+    "readability",
+    "rix",
+    "sentences",
+    "smog",
+    "syllables",
+    "textstat",
+    "whitespaces",
+    "words"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "github:OleVik/localized-readability",
+  "scripts": {
+    "build": "npm run build-module && npm run build-module-min && npm run build-patterns && npm run build-annotations && npm run build-hypher",
+    "build-annotations": "simplifyify annotations/**/*.js --outfile=dist/annotations --standalone Annotations --plugin tinyify",
+    "build-hypher": "browserify node_modules/hypher/lib/hypher.js --standalone Hypher --plugin tinyify > dist/hypher.js",
+    "build-module": "browserify index.js --standalone LocalizedReadability > dist/localized-readability.js",
+    "build-module-min": "browserify index.js --standalone LocalizedReadability --plugin tinyify > dist/localized-readability.min.js",
+    "build-patterns": "simplifyify node_modules/@fluid-project/hyphenation-patterns/patterns/**/*.js --outfile=dist/patterns --standalone HyphenationPatterns --plugin tinyify",
+    "clean": "fixpack",
+    "docs": "docma -c ./build/docma.json",
+    "lint": "eslint src/**",
+    "prepublishOnly": "npm run lint && npm run test && npm run build && npm run clean && npm run readme && npm run docs",
+    "readme": "jsdoc2md --heading-depth 3 -t ./build/README.hbs src/*.js  > README.md",
+    "serve": "http-server",
+    "test": "jest --no-cache"
+  },
+  "unpkg": "dist/localized-readability.min.js"
+}

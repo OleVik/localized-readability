@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Localized Readability Browser Test</title>
+  <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+  <link href="style.css" rel="stylesheet"></link>
+</head>
+<body>
+  <main>
+    <h2 id="header-main"></h2>
+    <content></content>
+  </main>
+  <aside>
+    <h2 id="header-score"></h2>
+    <section id="consensus">
+      <p class="description"></p>
+      <label class="age"></label>
+      <value class="age"></value>
+      <label class="grade"></label>
+      <value class="grade"></value>
+    </section>
+    <h3 id="header-interpretations"></h3>
+    <section id="automated-readability-index">
+      <h4 class="title"></h4>
+      <label class="age"></label>
+      <value class="age"></value>
+      <label class="grade"></label>
+      <value class="grade"></value>
+    </section>
+    <section id="flesch">
+      <h4 class="title"></h4>
+      <p class="value"></p>
+    </section>
+    <section id="flesch-kincaid">
+      <h4 class="title"></h4>
+      <label class="age"></label>
+      <value class="age"></value>
+      <label class="grade"></label>
+      <value class="grade"></value>
+    </section>
+    <section id="coleman-liau">
+      <h4 class="title"></h4>
+      <label class="age"></label>
+      <value class="age"></value>
+      <label class="grade"></label>
+      <value class="grade"></value>
+    </section>
+    <section id="smog">
+      <h4 class="title"></h4>
+      <label class="age"></label>
+      <value class="age"></value>
+      <label class="grade"></label>
+      <value class="grade"></value>
+    </section>
+    <section id="lix">
+      <h4 class="title"></h4>
+      <p class="value"></p>
+    </section>
+    <section id="rix">
+      <h4 class="title"></h4>
+      <label class="grade"></label>
+      <value class="grade"></value>
+    </section>
+    <h3 id="header-counts"></h3>
+    <section id="count">
+      <p class="description"></p>
+      <label class="paragraphs"></label>
+      <value class="paragraphs"></value>
+      <label class="sentences"></label>
+      <value class="sentences"></value>
+      <label class="words"></label>
+      <value class="words"></value>
+      <label class="syllables"></label>
+      <value class="syllables"></value>
+      <label class="polysillabic-words"></label>
+      <value class="polysillabic-words"></value>
+      <label class="letters"></label>
+      <value class="letters"></value>
+      <label class="characters"></label>
+      <value class="characters"></value>
+      <label class="longwords"></label>
+      <value class="longwords"></value>
+      <label class="periods"></label>
+      <value class="periods"></value>
+      <label class="punctuations"></label>
+      <value class="punctuations"></value>
+      <label class="whitespaces"></label>
+      <value class="whitespaces"></value>
+    </section>
+  </aside>
+  <script type="text/javascript" src="scripts.js"></script>
+  <script type="text/javascript" src="../data/simple.js"></script>
+  <script type="text/javascript">
+    const start = performance.now();
+    console.debug("Start cumulative count of processing time at: " + msToTime(performance.now() - start));
+  </script>
+  <script type="text/javascript" src="../../node_modules/promise-worker/dist/promise-worker.min.js"></script>
+  <script type="text/javascript" src="../../dist/hypher.js"></script>
+  <script type="text/javascript" src="../../dist/patterns/nb-no.js"></script>
+  <script type="text/javascript" src="../../dist/annotations/language.nb-no.js"></script>
+  <script type="text/javascript" src="../../dist/localized-readability.min.js"></script>
+  <script type="text/javascript">
+    const lang = "nb-no";
+    const input = window.simpleData[lang];
+    const Highlighter = window.LocalizedReadability.highlighter;
+    const Annotations = window.Annotations;
+    document.getElementById("header-main").innerHTML = Annotations.general.module;
+    document.getElementById("header-score").innerHTML = Annotations.general.score;
+    document.getElementById("header-interpretations").innerHTML = Annotations.general.interpretations;
+    document.getElementById("header-counts").innerHTML = Annotations.general.counts;
+    console.debug("Titles: " + msToTime(performance.now() - start));
+    if (window.Worker) {
+      var readabilityWorker = new PromiseWorker(new Worker('../../dist/workers/readability.js'));
+      var paragraphsWorker = new PromiseWorker(new Worker('../../dist/workers/paragraphs.js'));
+      var sentencesWorker = new PromiseWorker(new Worker('../../dist/workers/sentences.js'));
+      var wordsWorker = new PromiseWorker(new Worker('../../dist/workers/words.js'));
+      run(input, lang);
+    }
+  </script>
+</body>
+</html>
