@@ -20,9 +20,9 @@ See [FORMULAS.md](FORMULAS.md) for an overview and specification of readability 
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md), Pull Requests are very welcome.
+See [CONTRIBUTING.md](CONTRIBUTING.md), [Pull Requests](https://github.com/OleVik/localized-readability/pulls) are very welcome.
 
-Please post ideas, requests for features, improvements, research, and the like as Issues. 
+Please post ideas, requests for features, improvements, research, and the like as [Issues](https://github.com/OleVik/localized-readability/issues). 
 
 ### Adding languages
 
