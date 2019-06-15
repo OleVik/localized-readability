@@ -27,17 +27,17 @@ function msToTime(millisec) {
  * @param {string} input Text to process
  * @param {string} lang Language-code
  */
-function run(input, lang) {
+function run(input, lang, path) {
   const results = {};
   return readabilityWorker
-    .postMessage({ input: input, lang: lang })
+    .postMessage({ input: input, lang: lang, path: path })
     .then(function(response) {
       results.data = response;
       console.debug("Readability: " + msToTime(performance.now() - start));
       renderScore(results.data);
       console.debug("Score: " + msToTime(performance.now() - start));
       const nlcst = results.data.setup.nlcst;
-      return paragraphsWorker.postMessage({ nlcst });
+      return paragraphsWorker.postMessage({ nlcst, path: path });
     })
     .then(function(response) {
       results.paragraphs = response;
@@ -46,7 +46,7 @@ function run(input, lang) {
         "content"
       )[0].innerHTML = Highlighter.stringify(results.paragraphs);
       const nlcst = results.paragraphs;
-      return sentencesWorker.postMessage({ nlcst });
+      return sentencesWorker.postMessage({ nlcst, path: path });
     })
     .then(function(response) {
       results.sentences = response;
@@ -55,7 +55,7 @@ function run(input, lang) {
         "content"
       )[0].innerHTML = Highlighter.stringify(results.sentences);
       const nlcst = results.sentences;
-      return wordsWorker.postMessage({ nlcst, lang: lang });
+      return wordsWorker.postMessage({ nlcst, lang: lang, path: path });
     })
     .then(function(response) {
       results.words = response;
@@ -90,6 +90,9 @@ function renderScore(data) {
     data.consensus.grade;
   document.querySelector("#automated-readability-index .title").innerHTML =
     Annotations.stats.automatedReadability.title;
+  document.querySelector(
+    "#automated-readability-index .description"
+  ).innerHTML = Annotations.stats.automatedReadability.description;
   document
     .querySelector("#automated-readability-index .title")
     .setAttribute("title", Annotations.stats.automatedReadability.description);
@@ -103,6 +106,8 @@ function renderScore(data) {
     data.interpretations.automatedReadability.grade;
   document.querySelector("#flesch .title").innerHTML =
     Annotations.stats.flesch.title;
+  document.querySelector("#flesch .description").innerHTML =
+    Annotations.stats.flesch.description;
   document
     .querySelector("#flesch .title")
     .setAttribute("title", Annotations.stats.flesch.description);
@@ -110,6 +115,8 @@ function renderScore(data) {
     data.interpretations.flesch;
   document.querySelector("#flesch-kincaid .title").innerHTML =
     Annotations.stats.fleschKincaid.title;
+  document.querySelector("#flesch-kincaid .description").innerHTML =
+    Annotations.stats.fleschKincaid.description;
   document
     .querySelector("#flesch-kincaid .title")
     .setAttribute("title", Annotations.stats.fleschKincaid.description);
@@ -123,6 +130,8 @@ function renderScore(data) {
     data.interpretations.fleschKincaid.grade;
   document.querySelector("#coleman-liau .title").innerHTML =
     Annotations.stats.colemanLiau.title;
+  document.querySelector("#coleman-liau .description").innerHTML =
+    Annotations.stats.colemanLiau.description;
   document
     .querySelector("#coleman-liau .title")
     .setAttribute("title", Annotations.stats.colemanLiau.description);
@@ -136,6 +145,8 @@ function renderScore(data) {
     data.interpretations.colemanLiau.grade;
   document.querySelector("#smog .title").innerHTML =
     Annotations.stats.smog.title;
+  document.querySelector("#smog .description").innerHTML =
+    Annotations.stats.smog.description;
   document
     .querySelector("#smog .title")
     .setAttribute("title", Annotations.stats.smog.description);
@@ -147,11 +158,15 @@ function renderScore(data) {
   document.querySelector("#smog value.grade").innerHTML =
     data.interpretations.smog.grade;
   document.querySelector("#lix .title").innerHTML = Annotations.stats.lix.title;
+  document.querySelector("#lix .description").innerHTML =
+    Annotations.stats.lix.description;
   document
     .querySelector("#lix .title")
     .setAttribute("title", Annotations.stats.lix.description);
   document.querySelector("#lix .value").innerHTML = data.interpretations.lix;
   document.querySelector("#rix .title").innerHTML = Annotations.stats.rix.title;
+  document.querySelector("#rix .description").innerHTML =
+    Annotations.stats.rix.description;
   document
     .querySelector("#rix .title")
     .setAttribute("title", Annotations.stats.rix.description);

@@ -104,6 +104,7 @@
   <script type="text/javascript">
     const lang = "en-us";
     const input = window.simpleData[lang];
+    const path = "/dist";
     const Highlighter = window.LocalizedReadability.highlighter;
     const Annotations = window.Annotations;
     document.getElementById("header-main").innerHTML = Annotations.general.module;
@@ -116,7 +117,7 @@
       var paragraphsWorker = new PromiseWorker(new Worker('../../dist/workers/paragraphs.js'));
       var sentencesWorker = new PromiseWorker(new Worker('../../dist/workers/sentences.js'));
       var wordsWorker = new PromiseWorker(new Worker('../../dist/workers/words.js'));
-      run(input, lang);
+      run(input, lang, path);
     }
   </script>
 </body>

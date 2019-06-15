@@ -4,7 +4,6 @@
 html {
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
-  background-color: hsl(0, 0%, 95%);
   word-break: break-word;
 }
 body {
@@ -12,11 +11,7 @@ body {
   grid-template-columns: 66% 33%;
   grid-gap: 1em;
   margin: 1em;
-}
-main,
-aside {
-  background-color: hsl(0, 0%, 97.5%);
-  border: 1px solid #e1e4e8;
+  font-size: 16px;
 }
 section {
   display: grid;
@@ -29,23 +24,26 @@ section {
 section * {
   grid-column: auto;
 }
+section:not(#consensus) .description {
+  font-size: 0.8em;
+}
 label {
   padding: 0.25em;
 }
 value,
 .value {
   padding: 0.25em;
-  color: #000000;
   font-weight: bold;
-  background: #ffffff;
-  box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
-  border-color: #000000;
 }
 .title,
 .description,
 .value {
   grid-column: span 4;
   margin: 0;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
 }
 content {
   display: block;
@@ -71,30 +69,30 @@ mark {
   background-color: rgba(214, 53, 0, 0.15);
 }
 .word {
+  border-bottom: 1px solid transparent;
 }
 .word-0 {
-  box-shadow: 0 2px 0 rgba(122, 200, 40, 1);
+  border-color: rgba(122, 200, 40, 1);
 }
 .word-1 {
-  box-shadow: 0 2px 0 rgba(232, 220, 0, 1);
+  border-color: rgba(232, 220, 0, 1);
 }
 .word-2 {
-  box-shadow: 0 2px 0 rgba(234, 198, 18, 1);
+  border-color: rgba(234, 198, 18, 1);
 }
 .word-3 {
-  box-shadow: 0 2px 0 rgba(221, 134, 11, 1);
+  border-color: rgba(221, 134, 11, 1);
 }
 .word-4 {
-  box-shadow: 0 2px 0 rgba(165, 16, 8, 1);
+  border-color: rgba(165, 16, 8, 1);
 }
 h2 {
   font-size: 3em;
   font-weight: 100;
   text-align: center;
+  line-height: 0;
   margin: 0;
   padding: 1em 0;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e1e4e8;
 }
 h3 {
   font-size: 1.5em;
@@ -119,4 +117,48 @@ a:hover,
 a:focus,
 a:target {
   color: inherit;
+}
+
+@media screen {
+  html {
+    background-color: hsl(0, 0%, 95%);
+  }
+  main,
+  aside {
+    background-color: hsl(0, 0%, 97.5%);
+    border: 1px solid #e1e4e8;
+  }
+  h2 {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  value,
+  .value {
+    background: #ffffff;
+    box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
+    border-color: #000000;
+  }
+}
+
+@media print {
+  body {
+    grid-template-columns: 100%;
+    grid-gap: 0;
+    margin: 0;
+  }
+  main {
+    line-height: 2;
+    text-align: justify;
+  }
+  content {
+    margin: 0;
+    padding: 1em;
+  }
+  h2 {
+    padding: 0.5em 0;
+    text-align: left;
+  }
+  aside {
+    line-height: 0.75;
+  }
 }

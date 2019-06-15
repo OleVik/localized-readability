@@ -28,6 +28,13 @@ module.exports = {
       source: ""
     }
   },
+  highlight: {
+    "0": "Normal",
+    "1": "Fairly difficult",
+    "2": "Difficult",
+    "3": "Very difficult",
+    "4": "Extremely difficult"
+  },
   stats: {
     consensus: {
       description: "Average across measurements."
