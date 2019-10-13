@@ -86,9 +86,9 @@
     "lint": "eslint src/**",
     "prepublishOnly": "npm run lint && npm run test && npm run build && npm run clean && npm run readme && npm run docs",
     "readme": "jsdoc2md --heading-depth 3 -t ./build/README.hbs src/*.js > README.md",
+    "release": "release-it",
     "serve": "http-server",
-    "test": "jest --no-cache",
-    "release": "np"
+    "test": "jest --no-cache"
   },
   "unpkg": "dist/localized-readability.min.js"
 }
