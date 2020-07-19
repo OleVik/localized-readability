@@ -83,7 +83,7 @@
     "build-patterns": "simplifyify node_modules/@fluid-project/hyphenation-patterns/patterns/**/*.js --outfile=dist/patterns --standalone HyphenationPatterns --plugin tinyify",
     "clean": "fixpack",
     "docs": "docma -c ./build/docma.json",
-    "lint": "eslint src/**",
+    "lint": "eslint src/** --fix",
     "prepublishOnly": "npm run lint && npm run test && npm run build && npm run clean && npm run readme && npm run docs",
     "readme": "jsdoc2md --heading-depth 3 -t ./build/README.hbs src/*.js > README.md",
     "release": "release-it",

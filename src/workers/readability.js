@@ -1,13 +1,14 @@
+/* eslint-disable */
 self.importScripts(
   "../../node_modules/promise-worker/dist/promise-worker.register.min.js"
 );
 
-registerPromiseWorker(function(data) {
+registerPromiseWorker(function (data) {
   importScripts(
-    data.path + "/hypher.js",
-    data.path + `/patterns/${data.lang}.js`,
-    data.path + `/annotations/language.${data.lang}.js`,
-    data.path + "/localized-readability.min.js"
+    `${data.path}/hypher.js`,
+    `${data.path}/patterns/${data.lang}.js`,
+    `${data.path}/annotations/language.${data.lang}.js`,
+    `${data.path}/localized-readability.min.js`
   );
   const Parser = LocalizedReadability.parser;
   var message = {};

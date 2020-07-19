@@ -1,12 +1,13 @@
+/* eslint-disable */
 self.importScripts(
   "../../node_modules/promise-worker/dist/promise-worker.register.min.js"
 );
 
-registerPromiseWorker(function(data) {
+registerPromiseWorker(function (data) {
   importScripts(
-    data.path + "/hypher.js",
-    data.path + `/patterns/${data.lang}.js`,
-    data.path + "/localized-readability.min.js"
+    `${data.path}/hypher.js`,
+    `${data.path}/patterns/${data.lang}.js`,
+    `${data.path}/localized-readability.min.js`
   );
   const Highlighter = LocalizedReadability.highlighter;
   const highlight = Highlighter.highlight(data.nlcst, {
@@ -14,7 +15,7 @@ registerPromiseWorker(function(data) {
     sentences: false,
     words: true,
     Hypher: Hypher,
-    HyphenationPatterns: HyphenationPatterns
+    HyphenationPatterns: HyphenationPatterns,
   });
   return highlight;
 });
