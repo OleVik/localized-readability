@@ -21,7 +21,7 @@ module.exports = {
   modifier: {
     grade: {
       constant: 5,
-      source: "https://en.wikipedia.org/wiki/Educational_stage#United_States"
+      source: "https://en.wikipedia.org/wiki/Education_in_Germany#Primary_education"
     },
     syllable: {
       constant: 1,
