@@ -1,164 +1,245 @@
-* {
+.readability * {
   box-sizing: border-box;
 }
-html {
+.readability {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: 100%;
+  grid-gap: 0.5rem 1rem;
+  width: 100%;
+  padding: 2rem;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
   word-break: break-word;
 }
-body {
+.readability header {
   display: grid;
-  grid-template-columns: 66% 33%;
-  grid-gap: 1em;
-  margin: 1em;
-  font-size: 16px;
+  grid-gap: 0.5em 1em;
+  grid-template-rows: auto;
+  grid-column: span 2;
+  margin: 0;
 }
-section {
+.readability header h2 {
+  margin: auto 0 !important;
+  padding: 0 !important;
+  font-size: 1.75rem !important;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 0;
+}
+.readability header section {
+  display: block;
+}
+.readability header section label,
+.readability header section value {
+  display: block;
+  padding: 0;
+  border-bottom: 0;
+  box-shadow: none;
+}
+.readability header section label {
+  font-weight: 100;
+}
+.readability header section value {
+  font-size: 2.5rem;
+}
+.readability main section,
+.readability aside section {
   display: grid;
-  grid-gap: 1em;
+  grid-gap: 0.5rem 1rem;
   grid-template-columns: auto;
   grid-template-rows: auto;
-  grid-column: span 4;
-  margin: 1em;
+  margin: 0 0.25rem 0.25rem 0.25rem;
 }
-section * {
+.readability section#count {
+  grid-template-columns: repeat(2, 1fr);
+}
+.readability section * {
   grid-column: auto;
 }
-section:not(#consensus) .description {
-  font-size: 0.8em;
+.readability label {
+  padding: 0.25rem;
 }
-label {
-  padding: 0.25em;
-}
-value,
-.value {
-  padding: 0.25em;
+.readability value,
+.readability .value {
+  padding: 0.25rem;
   font-weight: bold;
 }
-.title,
-.description,
-.value {
-  grid-column: span 4;
+.readability .title,
+.readability .description,
+.readability .value {
+  grid-column: 1/-1;
   margin: 0;
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
-    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
-    monospace;
 }
-content {
+.readability section#consensus .description {
+  margin: 1rem 0;
+}
+.readability content {
   display: block;
-  margin: 1em;
-  padding: 2em;
+  margin: 1rem;
+  padding: 0;
 }
-mark {
+.readability mark {
   background-color: transparent;
 }
-.sentence-0 {
+.readability .sentence-0 {
   background-color: rgba(139, 232, 81, 0.15);
 }
-.sentence-1 {
+.readability .sentence-1 {
   background-color: rgba(239, 255, 71, 0.15);
 }
-.sentence-2 {
+.readability .sentence-2 {
   background-color: rgba(255, 171, 5, 0.15);
 }
-.sentence-3 {
+.readability .sentence-3 {
   background-color: rgba(255, 78, 0, 0.15);
 }
-.sentence-4 {
+.readability .sentence-4 {
   background-color: rgba(214, 53, 0, 0.15);
 }
-.word {
-  border-bottom: 1px solid transparent;
+.readability .word-0 {
+  border-bottom: 2px solid rgba(122, 200, 40, 1);
 }
-.word-0 {
-  border-color: rgba(122, 200, 40, 1);
+.readability .word-1 {
+  border-bottom: 2px solid rgba(232, 220, 0, 1);
 }
-.word-1 {
-  border-color: rgba(232, 220, 0, 1);
+.readability .word-2 {
+  border-bottom: 2px solid rgba(234, 198, 18, 1);
 }
-.word-2 {
-  border-color: rgba(234, 198, 18, 1);
+.readability .word-3 {
+  border-bottom: 2px solid rgba(221, 134, 11, 1);
 }
-.word-3 {
-  border-color: rgba(221, 134, 11, 1);
+.readability .word-4 {
+  border-bottom: 2px solid rgba(165, 16, 8, 1);
 }
-.word-4 {
-  border-color: rgba(165, 16, 8, 1);
-}
-h2 {
-  font-size: 3em;
+.readability h2 {
   font-weight: 100;
   text-align: center;
-  line-height: 0;
   margin: 0;
-  padding: 1em 0;
+  padding: 0.15em 0;
 }
-h3 {
-  font-size: 1.5em;
+.readability h3 {
+  font-size: 1.5rem;
   font-weight: 100;
-  margin: 0.5em;
+  margin: 0.25rem;
+  padding: 0;
 }
-h4 {
-  font-size: 1em;
+.readability h4 {
+  font-size: 1rem;
   font-weight: 600;
   margin: 0;
 }
-p {
-  margin: 1em 0;
+.readability p {
+  margin: 1rem 0;
+  padding: 0;
 }
-a {
+.readability a {
   text-decoration: none;
   color: #0367d8;
   transition: 200ms;
   transition-property: color;
 }
-a:hover,
-a:focus,
-a:target {
+.readability a:hover,
+.readability a:focus,
+.readability a:target {
   color: inherit;
 }
 
 @media screen {
-  html {
-    background-color: hsl(0, 0%, 95%);
-  }
-  main,
-  aside {
+  .readability main,
+  .readability aside {
+    grid-column: 1;
     background-color: hsl(0, 0%, 97.5%);
     border: 1px solid #e1e4e8;
   }
-  h2 {
+  .readability h2 {
     background-color: #ffffff;
     border-bottom: 1px solid #e1e4e8;
   }
-  value,
-  .value {
-    background: #ffffff;
-    box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
-    border-color: #000000;
+  .readability value,
+  .readability .value {
+    padding: 0.25rem;
+    font-weight: bold;
   }
 }
 
 @media print {
-  body {
-    grid-template-columns: 100%;
+  .readability {
+    grid-template-columns: 1fr;
     grid-gap: 0;
     margin: 0;
+    padding: 0;
   }
-  main {
+  .readability header {
+    grid-column: span 1;
+  }
+  .readability main {
+    grid-column: span 1;
     line-height: 2;
     text-align: justify;
   }
-  content {
-    margin: 0;
-    padding: 1em;
+  .readability aside section {
+    grid-template-columns: repeat(2, 1fr) repeat(4, 15%);
   }
-  h2 {
-    padding: 0.5em 0;
+  .readability aside section label:first-of-type {
+    grid-column-start: 1;
+  }
+  .readability section#count {
+    grid-template-columns: repeat(6, 15%);
+  }
+  .readability aside {
+    grid-column: span 1;
+    line-height: 1;
+  }
+  .readability content {
+    margin: 0;
+  }
+  .readability content p {
+    margin: 0.5rem 0;
+  }
+  .readability h2 {
     text-align: left;
   }
-  aside {
-    line-height: 0.75;
+}
+
+@media (min-width: 576px) {
+  .readability h3 {
+    margin: 0.5rem;
+  }
+  .readability header {
+    grid-template-columns: 3fr 2fr 2fr;
+  }
+  .readability main section,
+  .readability aside section {
+    grid-template-columns: repeat(6, 1fr);
+    margin: 0 0.5rem 0.5rem 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .readability {
+    grid-template-columns: 66% 33%;
+  }
+  .readability h3 {
+    margin: 0.75rem;
+  }
+  .readability main,
+  .readability aside {
+    grid-column: auto;
+  }
+  .readability main section,
+  .readability aside section {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0.75rem 0.75rem 0.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .readability h3 {
+    margin: 1rem;
+  }
+  .readability main section,
+  .readability aside section {
+    margin: 0 1rem 1rem 1rem;
   }
 }

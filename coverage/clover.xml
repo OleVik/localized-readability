@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1560603614406" clover="3.2.0">
-  <project timestamp="1560603614406" name="All files">
+<coverage generated="1595191318909" clover="3.2.0">
+  <project timestamp="1595191318909" name="All files">
     <metrics statements="207" coveredstatements="124" conditionals="241" coveredconditionals="133" methods="20" coveredmethods="20" elements="468" coveredelements="277" complexity="0" loc="207" ncloc="207" packages="1" files="5" classes="5"/>
-    <file name="computors.js" path="C:\Users\Ole\npm\localized-readability\src\computors.js">
+    <file name="computors.js" path="C:\Users\Ole\GitHub\localized-readability\src\computors.js">
       <metrics statements="18" coveredstatements="10" conditionals="23" coveredconditionals="15" methods="3" coveredmethods="3"/>
       <line num="13" count="3" type="cond" truecount="5" falsecount="1"/>
       <line num="14" count="0" type="stmt"/>
@@ -23,7 +23,7 @@
       <line num="58" count="0" type="stmt"/>
       <line num="62" count="6" type="stmt"/>
     </file>
-    <file name="highlighter.js" path="C:\Users\Ole\npm\localized-readability\src\highlighter.js">
+    <file name="highlighter.js" path="C:\Users\Ole\GitHub\localized-readability\src\highlighter.js">
       <metrics statements="44" coveredstatements="26" conditionals="49" coveredconditionals="28" methods="4" coveredmethods="4"/>
       <line num="6" count="1" type="stmt"/>
       <line num="21" count="1" type="cond" truecount="3" falsecount="1"/>
@@ -70,7 +70,7 @@
       <line num="89" count="1" type="stmt"/>
       <line num="92" count="1" type="stmt"/>
     </file>
-    <file name="interpretors.js" path="C:\Users\Ole\npm\localized-readability\src\interpretors.js">
+    <file name="interpretors.js" path="C:\Users\Ole\GitHub\localized-readability\src\interpretors.js">
       <metrics statements="73" coveredstatements="29" conditionals="121" coveredconditionals="53" methods="4" coveredmethods="4"/>
       <line num="13" count="2" type="cond" truecount="3" falsecount="1"/>
       <line num="14" count="0" type="stmt"/>
@@ -146,7 +146,7 @@
       <line num="123" count="0" type="stmt"/>
       <line num="127" count="6" type="stmt"/>
     </file>
-    <file name="parser.js" path="C:\Users\Ole\npm\localized-readability\src\parser.js">
+    <file name="parser.js" path="C:\Users\Ole\GitHub\localized-readability\src\parser.js">
       <metrics statements="45" coveredstatements="36" conditionals="32" coveredconditionals="24" methods="6" coveredmethods="6"/>
       <line num="6" count="6" type="stmt"/>
       <line num="7" count="6" type="stmt"/>
@@ -194,7 +194,7 @@
       <line num="205" count="1" type="stmt"/>
       <line num="222" count="6" type="stmt"/>
     </file>
-    <file name="utilities.js" path="C:\Users\Ole\npm\localized-readability\src\utilities.js">
+    <file name="utilities.js" path="C:\Users\Ole\GitHub\localized-readability\src\utilities.js">
       <metrics statements="27" coveredstatements="23" conditionals="16" coveredconditionals="13" methods="3" coveredmethods="3"/>
       <line num="14" count="6" type="cond" truecount="3" falsecount="1"/>
       <line num="15" count="0" type="stmt"/>
