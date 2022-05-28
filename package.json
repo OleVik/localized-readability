@@ -12,7 +12,7 @@
     "automated-readability": "^1.0.3",
     "coleman-liau": "^1.0.3",
     "flesch-kincaid": "^1.0.3",
-    "fs-extra": "^8.0.1",
+    "fs-extra": "^9.0.0",
     "hypher": "^0.2.5",
     "mdast-util-to-nlcst": "^3.2.2",
     "nlcst-to-string": "^2.0.2",
