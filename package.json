@@ -12,7 +12,6 @@
     "automated-readability": "^1.0.3",
     "coleman-liau": "^1.0.3",
     "flesch-kincaid": "^1.0.3",
-    "fs-extra": "^8.0.1",
     "hypher": "^0.2.5",
     "mdast-util-to-nlcst": "^3.2.2",
     "nlcst-to-string": "^2.0.2",
@@ -24,6 +23,7 @@
     "vfile": "^4.0.0"
   },
   "devDependencies": {
+    "@release-it/keep-a-changelog": "^5.0.0",
     "browserify": "^16.2.3",
     "docma": "^3.2.2",
     "dotenv": "^8.0.0",
@@ -31,16 +31,21 @@
     "fixpack": "^2.3.1",
     "http-server": "^0.12.3",
     "jest": "^24.8.0",
-    "jsdoc-to-markdown": "^5.0.0",
+    "jsdoc-to-markdown": "^8.0.1",
     "parse-english": "^4.1.2",
     "promise-worker": "^2.0.1",
     "simplifyify": "^7.0.2",
     "tinyify": "^2.5.0"
   },
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "files": [
     "dist",
-    "src"
+    "src",
+    "test"
   ],
+  "homepage": "https://github.com/OleVik/localized-readability#readme",
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -73,9 +78,16 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "release-it": {
+    "plugins": {
+      "@release-it/keep-a-changelog": {
+        "filename": "CHANGELOG.md"
+      }
+    }
+  },
   "repository": "github:OleVik/localized-readability",
   "scripts": {
-    "build": "npm run build-module && npm run build-module-min && npm run build-patterns && npm run build-annotations && npm run build-hypher",
+    "build": "npm run setup && npm run build-module && npm run build-module-min && npm run build-patterns && npm run build-annotations && npm run build-hypher",
     "build-annotations": "simplifyify annotations/**/*.js --outfile=dist/annotations --standalone Annotations --plugin tinyify",
     "build-hypher": "browserify node_modules/hypher/lib/hypher.js --standalone Hypher --plugin tinyify > dist/hypher.js",
     "build-module": "browserify index.js --standalone LocalizedReadability > dist/localized-readability.js",
@@ -83,11 +95,13 @@
     "build-patterns": "simplifyify node_modules/@fluid-project/hyphenation-patterns/patterns/**/*.js --outfile=dist/patterns --standalone HyphenationPatterns --plugin tinyify",
     "clean": "fixpack",
     "docs": "docma -c ./build/docma.json",
+    "docs2": "jsdoc2md src/parser.js",
     "lint": "eslint src/** --fix",
     "prepublishOnly": "npm run lint && npm run test && npm run build && npm run clean && npm run readme && npm run docs",
     "readme": "jsdoc2md --heading-depth 3 -t ./build/README.hbs src/*.js > README.md",
     "release": "release-it",
     "serve": "http-server",
+    "setup": "node src/setup.js",
     "test": "jest --no-cache"
   },
   "unpkg": "dist/localized-readability.min.js"

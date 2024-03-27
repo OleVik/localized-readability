@@ -4,7 +4,7 @@
   "assets": {
     "/img": ["./build/*.{png,ico}"]
   },
-  "dest": "./docs",
+  "dest": "./docs/api",
   "clean": true,
   "jsdoc": {
     "package": true,
@@ -14,7 +14,7 @@
   },
   "app": {
     "title": "Localized Readability",
-    "base": "/localized-readability",
+    "base": "./",
     "favicon": "./build/favicon.ico",
     "routing": "path",
     "server": "github"
@@ -36,6 +36,12 @@
         "animations": true,
         "menu": [
           {
+            "label": "Try",
+            "iconClass": "fas fa-file-alt",
+            "href": "https://olevik.github.io/localized-readability/",
+            "target": "_blank"
+          },
+          {
             "label": "Docs",
             "iconClass": "fas fa-book",
             "href": "https://github.com/OleVik/localized-readability#usage",
@@ -44,27 +50,11 @@
           {
             "label": "Download",
             "iconClass": "fas fa-cloud-download-alt",
-            "items": [
-              {
-                "label": "<code>npm i localized-readability</code>",
-                "href": "https://www.npmjs.com/package/localized-readability",
-                "target": "_blank"
-              },
-              {
-                "label": "Releases",
-                "href": "https://github.com/OleVik/localized-readability/releases",
-                "target": "_blank"
-              },
-              { "separator": true },
-              {
-                "label": "Change Log",
-                "href": "https://github.com/OleVik/localized-readability/blob/master/CHANGELOG.md",
-                "target": "_blank"
-              }
-            ]
+            "href": "https://github.com/OleVik/localized-readability#install",
+            "target": "_blank"
           },
           {
-            "label": "GitHub",
+            "label": "Code",
             "iconClass": "fab fa-github",
             "href": "https://github.com/OleVik/localized-readability",
             "target": "_blank"
