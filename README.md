@@ -63,13 +63,11 @@ Before including the module itself:
 <script src="//unpkg.com/localized-readability@latest/dist/annotations/language.en-us.js"></script>
 ```
 
+To get an idea of what it does, see the [interactive demo](https://olevik.github.io/localized-readability/) and [it's source](https://github.com/OleVik/localized-readability/tree/master/docs) for a sample implementation in the browser.
+
 ## Usage
 
-The module exports a `Parser` and a `Highlighter`. To generate statistics, pass a plain text string, an instance of
-Hypher, and applicable hyphenation patterns to `Parser.setup()`. Further, pass the results to `Parser.count()` to get
-descriptive statistics, the result of that to `Parser.statistics()` as well as a language-string to get readability
-statistics, the result of that to `Parser.interpretations()` as well as annotations to get interpreted readability
-statistics, and finally the result of that to `Parser.consensus()` to get an aggregated score on age and grade.
+The module exports a `Parser` and a `Highlighter`. To generate statistics, pass a plain text string, an instance of Hypher, and applicable hyphenation patterns to `Parser.setup()`. Further, pass the results to `Parser.count()` to get descriptive statistics, the result of that to `Parser.statistics()` as well as a language-string to get readability statistics. The result of that to `Parser.interpretations()` as well as annotations to get interpreted readability statistics, and finally the result of that to `Parser.consensus()` to get an aggregated score on age and grade.
 
 The language-string corresponds to the [patterns defined by the Fluid
 Project](https://github.com/fluid-project/hyphenation-patterns/tree/master/patterns), specifically the name of the file
@@ -95,10 +93,7 @@ console.log(message);
 
 ### Highlighting data
 
-The `Highlighter` takes a Natural Language Concrete Syntax Tree, given by `Parser.setup()` as the `nlcst`-property,
-through the `Highlighter.highlight()`-function and formats it with optional paragraphs, highlighted sentences, and
-highlighted words. The second parameter is an object of options, wherein `words: true` also requires an instance of
-Hypher and hyphenation patterns, as shown below:
+The `Highlighter` takes a Natural Language Concrete Syntax Tree, given by `Parser.setup()` as the `nlcst`-property, through the `Highlighter.highlight()`-function and formats it with optional paragraphs, highlighted sentences, and highlighted words. The second parameter is an object of options, wherein `words: true` also requires an instance of Hypher and hyphenation patterns, as shown below:
 
 ```js
 const Highlighter = require("localized-readability").highlighter;
@@ -115,19 +110,13 @@ const highlight = Highlighter.highlight(nlcst, {
 console.log(highlight);
 ```
 
-This returns a string of highlighted text, wherein the `p`-tag is used for paragraphs, and the `mark`-tag is used for
-sentences and words. The class `sentence` denotes sentences, and `word` words, as well as the class and a number between
-0 and 4 — higher numbers indicating higher difficulty. For example, `<mark class="sentence sentence-0"><mark class="word word-0">Hi</mark>!</mark>`.
+This returns a string of highlighted text, wherein the `p`-tag is used for paragraphs, and the `mark`-tag is used for sentences and words. The class `sentence` denotes sentences, and `word` words, as well as the class and a number between 0 and 4 — higher numbers indicating higher difficulty. For example, `<mark class="sentence sentence-0"><mark class="word word-0">Hi</mark>!</mark>`.
 
 #### Performance
 
-It is advised not to run the Highlighter synchronously in a browser, and to consider offsetting each type of
-highlighting if possible. The paragraph- and sentence-highlighting is much simpler in this regard, and can fairly safely
-be ran together on medium-length inputs. Word-highlighting is much more resource intensive, as each word has to have its
-syllables counted, and can take several seconds even on short-length inputs.
+It is advised not to run the Highlighter synchronously in a browser, and to consider offsetting each type of highlighting if possible. The paragraph- and sentence-highlighting is much simpler in this regard, and can fairly safely be ran together on medium-length inputs. Word-highlighting is much more resource intensive, as each word has to have its syllables counted, and can take several seconds even on short-length inputs.
 
-In the [test/browser folder](https://github.com/OleVik/localized-readability/tree/master/test/browser) there are an
-html-files which demonstrates running the Parser and Highlighter asynchronously, for various languages.
+In the [/test/browser folder](https://github.com/OleVik/localized-readability/tree/master/test/browser) there are an html-files which demonstrate running the Parser and Highlighter asynchronously, for various languages. The [interactive demo](https://olevik.github.io/localized-readability/) does the same, but with added controls.
 
 ## Development
 
@@ -142,8 +131,7 @@ Build module:
 ### Test data
 
 Test-data comes from [Farkas
-Translations](https://web.archive.org/web/20180120112908/http://www.farkastranslations.com/books/Doyle_Arthur_Conan-Hound_of_the_Baskervilles-en-fr-es-hu-fi-no.html)
-and [Bilinguis.com](http://bilinguis.com/book/baskerville/), see sources listed there.
+Translations](https://web.archive.org/web/20180120112908/http://www.farkastranslations.com/books/Doyle_Arthur_Conan-Hound_of_the_Baskervilles-en-fr-es-hu-fi-no.html) and [Bilinguis.com](http://bilinguis.com/book/baskerville/), see sources listed there.
 
 ## License
 

@@ -5,17 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixes
+
+- Changelog and Readme
+
 ## [1.4.2] - 2024-03-28
 
 ### Fixes
 
-- Interactive demo path to assets
+- Path to assets in interactive demo
 
 ## [1.4.1] - 2024-03-28
 
 ### Fixes
 
-- Interactive demo workers
+- Workers in interactive demo
 
 ## [1.4.0] - 2024-03-28
 
@@ -25,7 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Separated language pattern from annotations when rendering score
 - Integrated `promise-worker@2.0.1` in worker-scripts
 
 ## [1.3.3] - 2024-03-28
