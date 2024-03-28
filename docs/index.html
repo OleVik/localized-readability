@@ -325,10 +325,10 @@
           .toggleAttribute("disabled");
         const start = performance.now();
         if (window.Worker) {
-          readabilityWorker = new PromiseWorker(new Worker('/dist/workers/readability.js'));
-          paragraphsWorker = new PromiseWorker(new Worker('/dist/workers/paragraphs.js'));
-          sentencesWorker = new PromiseWorker(new Worker('/dist/workers/sentences.js'));
-          wordsWorker = new PromiseWorker(new Worker('/dist/workers/words.js'));
+          readabilityWorker = new PromiseWorker(new Worker('./workers/readability.js'));
+          paragraphsWorker = new PromiseWorker(new Worker('./workers/paragraphs.js'));
+          sentencesWorker = new PromiseWorker(new Worker('./workers/sentences.js'));
+          wordsWorker = new PromiseWorker(new Worker('./workers/words.js'));
           console.debug("Loaded workers at " + msToTime(performance.now() - start));
           run({
             input: input.innerText,
