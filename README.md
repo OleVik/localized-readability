@@ -8,7 +8,6 @@ Generate readability-statistics with localized options.
 - [Contributing](#contributing)
 - [Install](#install)
 - [Usage](#usage)
-- [API](#api)
 - [Building](#building)
 - [License](#license)
 

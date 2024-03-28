@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1595192613848" clover="3.2.0">
-  <project timestamp="1595192613848" name="All files">
-    <metrics statements="207" coveredstatements="124" conditionals="241" coveredconditionals="133" methods="20" coveredmethods="20" elements="468" coveredelements="277" complexity="0" loc="207" ncloc="207" packages="1" files="5" classes="5"/>
-    <file name="computors.js" path="C:\Users\Ole\GitHub\localized-readability\src\computors.js">
+<coverage generated="1711618477050" clover="3.2.0">
+  <project timestamp="1711618477050" name="All files">
+    <metrics statements="217" coveredstatements="124" conditionals="247" coveredconditionals="133" methods="20" coveredmethods="20" elements="484" coveredelements="277" complexity="0" loc="217" ncloc="217" packages="1" files="6" classes="6"/>
+    <file name="computors.js" path="C:\Users\Ole\dev\GitHub\localized-readability\src\computors.js">
       <metrics statements="18" coveredstatements="10" conditionals="23" coveredconditionals="15" methods="3" coveredmethods="3"/>
       <line num="13" count="3" type="cond" truecount="5" falsecount="1"/>
       <line num="14" count="0" type="stmt"/>
@@ -23,7 +23,7 @@
       <line num="58" count="0" type="stmt"/>
       <line num="62" count="6" type="stmt"/>
     </file>
-    <file name="highlighter.js" path="C:\Users\Ole\GitHub\localized-readability\src\highlighter.js">
+    <file name="highlighter.js" path="C:\Users\Ole\dev\GitHub\localized-readability\src\highlighter.js">
       <metrics statements="44" coveredstatements="26" conditionals="49" coveredconditionals="28" methods="4" coveredmethods="4"/>
       <line num="6" count="1" type="stmt"/>
       <line num="21" count="1" type="cond" truecount="3" falsecount="1"/>
@@ -70,7 +70,7 @@
       <line num="89" count="1" type="stmt"/>
       <line num="92" count="1" type="stmt"/>
     </file>
-    <file name="interpretors.js" path="C:\Users\Ole\GitHub\localized-readability\src\interpretors.js">
+    <file name="interpretors.js" path="C:\Users\Ole\dev\GitHub\localized-readability\src\interpretors.js">
       <metrics statements="73" coveredstatements="29" conditionals="121" coveredconditionals="53" methods="4" coveredmethods="4"/>
       <line num="13" count="2" type="cond" truecount="3" falsecount="1"/>
       <line num="14" count="0" type="stmt"/>
@@ -146,7 +146,7 @@
       <line num="123" count="0" type="stmt"/>
       <line num="127" count="6" type="stmt"/>
     </file>
-    <file name="parser.js" path="C:\Users\Ole\GitHub\localized-readability\src\parser.js">
+    <file name="parser.js" path="C:\Users\Ole\dev\GitHub\localized-readability\src\parser.js">
       <metrics statements="45" coveredstatements="36" conditionals="32" coveredconditionals="24" methods="6" coveredmethods="6"/>
       <line num="6" count="6" type="stmt"/>
       <line num="7" count="6" type="stmt"/>
@@ -194,7 +194,20 @@
       <line num="205" count="1" type="stmt"/>
       <line num="222" count="6" type="stmt"/>
     </file>
-    <file name="utilities.js" path="C:\Users\Ole\GitHub\localized-readability\src\utilities.js">
+    <file name="setup.js" path="C:\Users\Ole\dev\GitHub\localized-readability\src\setup.js">
+      <metrics statements="10" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="15" count="0" type="stmt"/>
+    </file>
+    <file name="utilities.js" path="C:\Users\Ole\dev\GitHub\localized-readability\src\utilities.js">
       <metrics statements="27" coveredstatements="23" conditionals="16" coveredconditionals="13" methods="3" coveredmethods="3"/>
       <line num="14" count="6" type="cond" truecount="3" falsecount="1"/>
       <line num="15" count="0" type="stmt"/>
