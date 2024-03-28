@@ -4,7 +4,7 @@
   "assets": {
     "/img": ["./build/*.{png,ico}"]
   },
-  "dest": "./docs",
+  "dest": "./docs/api",
   "clean": true,
   "jsdoc": {
     "package": true,

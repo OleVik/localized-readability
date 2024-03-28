@@ -1,29 +1,365 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="shortcut icon" href="favicon.ico">
-    <title>Localized Readability</title>
-    <base href="./">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="generator" content="Docma - https://onury.io/docma">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Localized Readability Interactive Demo</title>
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/modern-normalize@2.0.0/modern-normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/formbase@12.0.2/dist/formbase.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.7/themes/light-border.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.7/themes/light.css">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body class="readability">
+    <h1>Localized Readability Interactive Demo</h1>
+    <header>
+      <div>
+        <label for="language">Language Pattern</label>
+        <select id="language">
+          <option value="be">Belarusian</option>
+          <option value="bn">Bengali</option>
+          <option value="ca">Catalan</option>
+          <option value="cs">Czech</option>
+          <option value="da">Danish</option>
+          <option value="de">German (Standard)</option>
+          <option value="el-monoton">Greek (Monotonic)</option>
+          <option value="el-polyton">Greek (Polytonic)</option>
+          <option value="grc">Greek (Ancient)</option>
+          <option value="en-gb">English (United Kingdom)</option>
+          <option selected value="en-us">English (United States)</option>
+          <option value="es">Spanish (Spain)</option>
+          <option value="fi">Finnish</option>
+          <option value="fr">French (Standard)</option>
+          <option value="gu">Gujarati</option>
+          <option value="hi">Hindi</option>
+          <option value="hu">Hungarian</option>
+          <option value="hy">Armenian</option>
+          <option value="is">Icelandic</option>
+          <option value="it">Italian (Standard)</option>
+          <option value="kn">Kannada</option>
+          <option value="la">Latin</option>
+          <option value="lt">Lithuanian</option>
+          <option value="lv">Latvian</option>
+          <option value="ml">Malayalam</option>
+          <option value="nb-no">Norwegian (Bokmål)</option>
+          <option value="nl">Dutch (Standard)</option>
+          <option value="or">Oriya</option>
+          <option value="pa">Panjabi</option>
+          <option value="pl">Polish</option>
+          <option value="pt">Portuguese (Portugal)</option>
+          <option value="ru">Russian</option>
+          <option value="sk">Slovak</option>
+          <option value="sl">Slovenian</option>
+          <option value="sv">Swedish</option>
+          <option value="ta">Tamil</option>
+          <option value="te">Telugu</option>
+          <option value="tr">Turkish</option>
+          <option value="uk">Ukrainian</option>
+        </select>
+      </div>
+      <button id="process">Process</button>
+      <div>
+        <label for="annotations">Annotations</label>
+        <select id="annotations">
+          <option selected value="en-us">English (United States)</option>
+          <option value="de">German (Standard)</option>
+          <option value="nb-no">Norwegian (Bokmål)</option>
+        </select>
+      </div>
+      <div>
+        <label for="sample">Sample data</label>
+        <select id="sample">
+          <option selected value="en-us">English (United States)</option>
+          <option value="es">Spanish (Spain)</option>
+          <option value="fi">Finnish</option>
+          <option value="fr">French (Standard)</option>
+          <option value="hu">Hungarian</option>
+          <option value="nb-no">Norwegian (Bokmål)</option>
+          <option value="de">German (Standard)</option>
+        </select>
+      </div>
+    </header>
+    <header checkboxes>
+      <input type="checkbox" id="score" name="score" checked>
+      <label for="score">Calculate score</label>
+      <label>Highlight:</label>
+      <input type="checkbox" id="paragraphs" name="paragraphs" checked>
+      <label for="paragraphs">Paragraphs</label>
+      <input type="checkbox" id="sentences" name="sentences" checked>
+      <label for="sentences">Sentences</label>
+      <input type="checkbox" id="words" name="words" checked>
+      <label for="words">Words</label>
+      <label for="tooltips">Tooltips:</label>
+      <select id="tooltips">
+        <option selected value="none">None</option>
+        <option value="sentences">Sentences</option>
+        <option value="words">Words</option>
+        <option value="sentences-words">Sentences and words</option>
+      </select>
+    </header>
+    <main>
+      <label id="edit" title="Edit input" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 25 4.03125 C 24.234375 4.03125 23.484375 4.328125 22.90625 4.90625 L 13 14.78125 L 12.78125 15 L 12.71875 15.3125 L 12.03125 18.8125 L 11.71875 20.28125 L 13.1875 19.96875 L 16.6875 19.28125 L 17 19.21875 L 17.21875 19 L 27.09375 9.09375 C 28.246094 7.941406 28.246094 6.058594 27.09375 4.90625 C 26.515625 4.328125 25.765625 4.03125 25 4.03125 Z M 25 5.96875 C 25.234375 5.96875 25.464844 6.089844 25.6875 6.3125 C 26.132813 6.757813 26.132813 7.242188 25.6875 7.6875 L 16 17.375 L 14.28125 17.71875 L 14.625 16 L 24.3125 6.3125 C 24.535156 6.089844 24.765625 5.96875 25 5.96875 Z M 4 8 L 4 28 L 24 28 L 24 14.8125 L 22 16.8125 L 22 26 L 6 26 L 6 10 L 15.1875 10 L 17.1875 8 Z" /></svg>
+      </label>
+      <label id="highlight" title="View output" style="display: block;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 23.625 3.0625 L 22.90625 3.6875 L 7.5625 17 L 7.0625 17.46875 L 7.3125 18.125 C 7.3125 18.125 8.4375 21.125 6.28125 23.28125 L 6.28125 23.3125 L 6.25 23.34375 L 6.09375 23.53125 L 5.96875 23.65625 L 2 27.53125 L 7.375 29 L 9.4375 26.9375 L 9.65625 26.75 L 9.6875 26.71875 L 9.71875 26.71875 C 11.875 24.5625 14.875 25.6875 14.875 25.6875 L 15.53125 25.9375 L 16 25.4375 L 29.3125 10.09375 L 29.9375 9.375 Z M 23.5 5.8125 L 27.1875 9.5 L 18.4375 19.5625 L 13.4375 14.5625 Z M 11.9375 15.875 L 17.125 21.0625 L 15.1875 23.3125 L 9.6875 17.8125 Z M 9.5625 20.5 L 12.5 23.4375 C 11.257813 23.484375 9.753906 23.875 8.34375 25.25 C 8.324219 25.269531 8.300781 25.261719 8.28125 25.28125 L 8.03125 25.5 L 7.5 24.96875 L 7.71875 24.71875 L 7.75 24.65625 C 9.125 23.246094 9.515625 21.742188 9.5625 20.5 Z" /></svg>
+      </label>
+      <h2 id="header-main"></h2>
+      <article id="input" contenteditable style="display: block;"></article>
+      <article id="output" style="display: none;"></article>
+    </main>
+    <aside>
+      <h2 id="header-score"></h2>
+      <section id="consensus">
+        <p class="description"></p>
+        <fieldset>
+          <label class="age"></label>
+          <value class="age"></value>
+        </fieldset>
+        <fieldset>
+          <label class="grade"></label>
+          <value class="grade"></value>
+        </fieldset>
+      </section>
+      <h3 id="header-interpretations"></h3>
+      <section id="automated-readability-index">
+        <h4 class="title"></h4>
+        <p class="description"></p>
+        <fieldset>
+          <label class="age"></label>
+          <value class="age"></value>
+        </fieldset>
+        <fieldset>
+          <label class="grade"></label>
+          <value class="grade"></value>
+        </fieldset>
+      </section>
+      <section id="flesch">
+        <h4 class="title"></h4>
+        <p class="description"></p>
+        <p class="value"></p>
+      </section>
+      <section id="flesch-kincaid">
+        <h4 class="title"></h4>
+        <p class="description"></p>
+        <fieldset>
+          <label class="age"></label>
+          <value class="age"></value>
+        </fieldset>
+        <fieldset>
+          <label class="grade"></label>
+          <value class="grade"></value>
+        </fieldset>
+      </section>
+      <section id="coleman-liau">
+        <h4 class="title"></h4>
+        <p class="description"></p>
+        <fieldset>
+          <label class="age"></label>
+          <value class="age"></value>
+        </fieldset>
+        <fieldset>
+          <label class="grade"></label>
+          <value class="grade"></value>
+        </fieldset>
+      </section>
+      <section id="smog">
+        <h4 class="title"></h4>
+        <p class="description"></p>
+        <fieldset>
+          <label class="age"></label>
+          <value class="age"></value>
+        </fieldset>
+        <fieldset>
+          <label class="grade"></label>
+          <value class="grade"></value>
+        </fieldset>
+      </section>
+      <section id="lix">
+        <h4 class="title"></h4>
+        <p class="description"></p>
+        <p class="value"></p>
+      </section>
+      <section id="rix">
+        <h4 class="title"></h4>
+        <p class="description"></p>
+        <fieldset>
+          <label class="grade"></label>
+          <value class="grade"></value>
+        </fieldset>
+      </section>
+      <h3 id="header-counts"></h3>
+      <section id="count">
+        <p class="description"></p>
+        <fieldset>
+          <label class="paragraphs"></label>
+          <value class="paragraphs"></value>
+        </fieldset>
+        <fieldset>
+          <label class="sentences"></label>
+          <value class="sentences"></value>
+        </fieldset>
+        <fieldset>
+          <label class="words"></label>
+          <value class="words"></value>
+        </fieldset>
+        <fieldset>
+          <label class="syllables"></label>
+          <value class="syllables"></value>
+        </fieldset>
+        <fieldset>
+          <label class="polysillabic-words"></label>
+          <value class="polysillabic-words"></value>
+        </fieldset>
+        <fieldset>
+          <label class="letters"></label>
+          <value class="letters"></value>
+        </fieldset>
+        <fieldset>
+          <label class="characters"></label>
+          <value class="characters"></value>
+        </fieldset>
+        <fieldset>
+          <label class="longwords"></label>
+          <value class="longwords"></value>
+        </fieldset>
+        <fieldset>
+          <label class="periods"></label>
+          <value class="periods"></value>
+        </fieldset>
+        <fieldset>
+          <label class="punctuations"></label>
+          <value class="punctuations"></value>
+        </fieldset>
+        <fieldset>
+          <label class="whitespaces"></label>
+          <value class="whitespaces"></value>
+        </fieldset>
+      </section>
+    </aside>
+    <footer>
+      <a href="https://github.com/OleVik/localized-readability">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 16 2 C 15.496094 2 15.003906 2.183594 14.625 2.5625 L 11.8125 5.40625 C 11.660156 5.488281 11.53125 5.605469 11.4375 5.75 L 2.5625 14.625 C 1.804688 15.378906 1.804688 16.617188 2.5625 17.375 L 14.625 29.4375 C 15.382813 30.191406 16.617188 30.191406 17.375 29.4375 L 29.4375 17.375 C 30.195313 16.621094 30.195313 15.382813 29.4375 14.625 L 17.375 2.5625 C 16.996094 2.183594 16.503906 2 16 2 Z M 16 4.03125 L 27.96875 16 L 16 27.96875 L 4.03125 16 L 12.3125 7.71875 L 14.0625 9.46875 C 14.015625 9.636719 14 9.816406 14 10 C 14 10.738281 14.402344 11.371094 15 11.71875 L 15 20.28125 C 14.402344 20.628906 14 21.261719 14 22 C 14 23.105469 14.894531 24 16 24 C 17.105469 24 18 23.105469 18 22 C 18 21.261719 17.597656 20.628906 17 20.28125 L 17 12.4375 L 20.0625 15.5 C 20.019531 15.660156 20 15.828125 20 16 C 20 17.105469 20.894531 18 22 18 C 23.105469 18 24 17.105469 24 16 C 24 14.894531 23.105469 14 22 14 C 21.828125 14 21.660156 14.019531 21.5 14.0625 L 17.9375 10.5 C 17.980469 10.339844 18 10.171875 18 10 C 18 8.894531 17.105469 8 16 8 C 15.816406 8 15.636719 8.015625 15.46875 8.0625 L 13.71875 6.3125 Z" /></svg>Repository</a>
+      <a href="https://olevik.github.io/localized-readability/docs/api">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 18 5 L 12 27 L 14 27 L 20 5 Z M 7.9375 6.40625 L 1.1875 15.40625 L 0.75 16 L 1.1875 16.59375 L 7.9375 25.59375 L 9.5625 24.40625 L 3.25 16 L 9.5625 7.59375 Z M 24.0625 6.40625 L 22.4375 7.59375 L 28.75 16 L 22.4375 24.40625 L 24.0625 25.59375 L 30.8125 16.59375 L 31.25 16 L 30.8125 15.40625 Z" /></svg>API</a>
+      <a href="https://github.com/OleVik/localized-readability/blob/master/FORMULAS.md">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 17 0 C 16.449219 0 16 0.449219 16 1 C 16 1.550781 16.449219 2 17 2 C 17.550781 2 18 1.550781 18 1 C 18 0.449219 17.550781 0 17 0 Z M 14 3 C 13.449219 3 13 3.449219 13 4 L 10 4 L 10 6 L 11 6 L 11 13.65625 L 4.84375 21.59375 C 4.300781 22.292969 4 23.148438 4 24.03125 C 4 26.214844 5.785156 28 7.96875 28 L 24.03125 28 C 26.214844 28 28 26.214844 28 24.03125 C 28 23.148438 27.699219 22.292969 27.15625 21.59375 L 21 13.65625 L 21 6 L 22 6 L 22 4 L 15 4 C 15 3.449219 14.550781 3 14 3 Z M 13 6 L 19 6 L 19 14.34375 L 21.84375 18 L 10.15625 18 L 13 14.34375 Z M 17 10 C 16.449219 10 16 10.449219 16 11 C 16 11.550781 16.449219 12 17 12 C 17.550781 12 18 11.550781 18 11 C 18 10.449219 17.550781 10 17 10 Z M 8.59375 20 L 23.40625 20 L 25.59375 22.8125 C 25.863281 23.160156 26 23.59375 26 24.03125 C 26 25.136719 25.136719 26 24.03125 26 L 7.96875 26 C 6.863281 26 6 25.136719 6 24.03125 C 6 23.59375 6.136719 23.160156 6.40625 22.8125 Z" /></svg>Formulas</a>
+    </footer>
+    <script type="text/javascript" src="https://unpkg.com/autosize@6.0.1/dist/autosize.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@popperjs/core@2"></script>
+    <script type="text/javascript" src="https://unpkg.com/tippy.js@6"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/localized-readability@1.3.3/test/data/simple.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/promise-worker@2.0.1/dist/promise-worker.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/localized-readability/dist/hypher.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/localized-readability/dist/patterns/en-us.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/localized-readability/dist/localized-readability.min.js"></script>
+    <script type="text/javascript">
+      const Highlighter = window.LocalizedReadability.highlighter;
+      const input = document.querySelector("article#input");
+      const output = document.querySelector("article#output");
+      autosize(document.querySelector('article#input'));
+      autosize(document.querySelector('article#output'));
 
-    <link rel="stylesheet" type="text/css" href="css/docma.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+      var language;
+      const languageSelector = document.querySelector("#language");
+      languageSelector.addEventListener("change", (event) => {
+        language = event.target.value;
+      });
+      language = languageSelector.value;
 
-    <script src="//use.fontawesome.com/releases/v5.5.0/js/all.js" defer=""></script>
-    <script src="js/docma-web.js"></script>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    <script src="js/highlight.pack.js"></script>
-    <script src="js/tippy.all.min.js"></script>
-    <script src="js/app.min.js"></script>
-</head>
+      const sampleSelector = document.querySelector("#sample");
+      input.innerText = window.simpleData[sampleSelector.value];
+      sampleSelector.addEventListener("change", (event) => {
+        input.innerText = window.simpleData[event.target.value];
+      });
 
-<body>
-    <div id="docma-main"></div>
+      const annotationsSelector = document.querySelector("#annotations");
+      var annotations = annotationsSelector.value;
+      loadAnnotations(annotationsSelector.value);
+      annotationsSelector.addEventListener("change", (event) => {
+        loadAnnotations(event.target.value);
+      });
 
+      const edit = document.querySelector("#edit");
+      const highlight = document.querySelector("#highlight");
+      edit.addEventListener("click", (event) => {
+        edit.style.display = "none";
+        highlight.style.display = "block";
+        output.style.display = "none";
+        input.style.display = "block";
+      });
+      highlight.addEventListener("click", (event) => {
+        highlight.style.display = "none";
+        edit.style.display = "block";
+        input.style.display = "none";
+        output.style.display = "block";
+      });
 
+      const tooltipsSelector = document.querySelector("#tooltips");
+      tooltipsSelector.addEventListener("change", (event) => {
+        if (event.target.value == "none") {
+          renderTooltips({sentences: false, words: false});
+        }
+        if (event.target.value == "sentences") {
+          renderTooltips({sentences: true, words: false});
+        }
+        if (event.target.value == "words") {
+          renderTooltips({sentences: false, words: true});
+        }
+        if (event.target.value == "sentences-words") {
+          renderTooltips({sentences: true, words: true});
+        }
+      });
 
-
-</body>
+      var readabilityWorker,
+        paragraphsWorker,
+        sentencesWorker,
+        wordsWorker;
+      const process = document.querySelector("#process");
+      process.addEventListener("click", (event) => {
+        event
+          .target
+          .toggleAttribute("disabled");
+        const start = performance.now();
+        if (window.Worker) {
+          readabilityWorker = new PromiseWorker(new Worker('/dist/workers/readability.js'));
+          paragraphsWorker = new PromiseWorker(new Worker('/dist/workers/paragraphs.js'));
+          sentencesWorker = new PromiseWorker(new Worker('/dist/workers/sentences.js'));
+          wordsWorker = new PromiseWorker(new Worker('/dist/workers/words.js'));
+          console.debug("Loaded workers at " + msToTime(performance.now() - start));
+          run({
+            input: input.innerText,
+            target: output,
+            language: language,
+            annotations: annotations,
+            path: "/dist",
+            start: start,
+            score: document
+              .querySelector("#score")
+              .checked,
+            paragraphs: document
+              .querySelector("#paragraphs")
+              .checked,
+            sentences: document
+              .querySelector("#words")
+              .checked,
+            words: document
+              .querySelector("#words")
+              .checked
+          });
+          console.debug("Finished processing at " + msToTime(performance.now() - start));
+          input.style.display = "none";
+          output.style.display = "block";
+          highlight.style.display = "none";
+          edit.style.display = "block";
+          event
+            .target
+            .toggleAttribute("disabled");
+        }
+      });
+    </script>
+  </body>
 </html>

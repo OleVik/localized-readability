@@ -1,0 +1,315 @@
+.readability {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.readability > header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+.readability > header * {
+  width: 100%;
+}
+.readability > header[checkboxes] {
+  align-items: center;
+  justify-content: flex-start;
+}
+.readability > header[checkboxes] > * {
+  flex-basis: auto;
+}
+.readability > header[checkboxes] > label {
+  margin-right: 0.5rem;
+}
+.readability > header > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.readability main section,
+.readability aside section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.25rem 0.25rem 0.25rem;
+}
+.readability main label {
+  float: right;
+  cursor: pointer;
+}
+.readability svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #585858;
+}
+.readability svg:hover {
+  fill: #000000;
+}
+
+.readability article {
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  resize: none;
+  background: transparent;
+  border: none;
+}
+.readability article#output {
+  line-height: 1;
+}
+.readability article#output p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.readability fieldset {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.readability label {
+  flex-basis: 45%;
+  padding: 0.25rem;
+  color: #585858;
+}
+.readability #count label {
+  flex-basis: 55%;
+}
+.readability value,
+.readability .value {
+  padding: 0.25rem;
+  font-weight: bold;
+}
+.readability .title,
+.readability .description,
+.readability .value {
+  grid-column: 1/-1;
+  margin: 0;
+}
+.readability section#consensus .description {
+  margin: 1rem 0;
+}
+.readability mark {
+  background-color: transparent;
+}
+.readability .sentence-0 {
+  background-color: rgba(139, 232, 81, 0.15);
+}
+.readability .sentence-1 {
+  background-color: rgba(239, 255, 71, 0.15);
+}
+.readability .sentence-2 {
+  background-color: rgba(255, 171, 5, 0.15);
+}
+.readability .sentence-3 {
+  background-color: rgba(255, 78, 0, 0.15);
+}
+.readability .sentence-4 {
+  background-color: rgba(214, 53, 0, 0.15);
+}
+.readability .word-0 {
+  border-bottom: 2px solid rgba(122, 200, 40, 1);
+}
+.readability .word-1 {
+  border-bottom: 2px solid rgba(232, 220, 0, 1);
+}
+.readability .word-2 {
+  border-bottom: 2px solid rgba(234, 198, 18, 1);
+}
+.readability .word-3 {
+  border-bottom: 2px solid rgba(221, 134, 11, 1);
+}
+.readability .word-4 {
+  border-bottom: 2px solid rgba(165, 16, 8, 1);
+}
+.readability h1 {
+  margin: 0;
+}
+.readability h2 {
+  text-align: center;
+  margin: 0;
+  padding: 0.15em 0;
+}
+.readability h3 {
+  margin: 0.25rem;
+  padding: 0;
+}
+.readability h4 {
+  margin: 0;
+}
+.readability p {
+  margin: 1rem 0;
+  padding: 0;
+}
+.readability a {
+  text-decoration: none;
+  color: #0367d8;
+  transition: 200ms;
+  transition-property: color;
+}
+.readability a:hover,
+.readability a:focus,
+.readability a:target {
+  color: inherit;
+}
+
+.readability > header button {
+  width: 100%;
+  font-size: 1.025rem;
+  color: #ffffff;
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  background-color: #4f93ce;
+  border: 1px solid #4589c4;
+  transition: background-color 0.28s ease, color 0.28s ease,
+    box-shadow 0.28s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.readability > header button:hover {
+  cursor: pointer;
+  background-color: #337ab7;
+  border-color: #3e89cc;
+}
+.readability > header button:disabled {
+  cursor: unset;
+  background-color: hsl(208, 0%, 46%);
+  border-color: #858585;
+}
+.readability > footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.readability > footer a {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem;
+}
+.readability > footer a svg {
+  margin: 0 0.25rem 0 0;
+}
+.readability select {
+  width: 100%;
+  padding: 0.35rem 0.25rem;
+  font-size: 100%;
+  line-height: 1.15;
+  border: 1px solid #bbbbbb;
+  border-radius: 0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+@media screen {
+  .readability main,
+  .readability aside {
+    background-color: #f9f9f9;
+    border: 1px solid #e1e4e8;
+  }
+  .readability h2 {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  .readability value,
+  .readability .value {
+    padding: 0.25rem;
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 576px) {
+  .readability h3 {
+    margin: 0.5rem;
+  }
+  .readability main section,
+  .readability aside section {
+    margin: 0 0.5rem 0.5rem 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .readability > header {
+    flex-direction: row;
+  }
+  .readability > header > * {
+    width: auto;
+  }
+  .readability > header button {
+    margin: 0.25rem 0.25rem 0 0.25rem;
+  }
+  .readability > footer {
+    flex-direction: row;
+  }
+  .readability main section,
+  .readability aside section {
+    margin: 0 0.75rem 0.75rem 0.75rem;
+  }
+  .readability main {
+    width: calc(70% - 0.25rem);
+  }
+  .readability aside {
+    width: calc(30% - 0.25rem);
+  }
+  .readability h3 {
+    margin: 0.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .readability h3 {
+    margin: 1rem;
+  }
+  .readability main section,
+  .readability aside section {
+    margin: 0 1rem 1rem 1rem;
+  }
+}
+
+@media print {
+  .readability {
+    margin: 0;
+    padding: 0;
+  }
+  .readability header,
+  .readability > footer,
+  .readability main label svg {
+    display: none;
+  }
+  .readability main {
+    line-height: 2;
+    text-align: justify;
+  }
+  .readability aside {
+    line-height: 1;
+  }
+  .readability article {
+    margin: 0;
+  }
+  .readability article p {
+    margin: 0.5rem 0;
+  }
+  .readability h1,
+  .readability h2 {
+    margin: 0 0 0.5rem 0.5rem;
+    text-align: left;
+  }
+}

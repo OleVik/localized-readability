@@ -2,8 +2,8 @@
 
 The following is an overview and specification of each readability test applied. The following rules apply to all tests:
 
-1. Must be applicable to all languages, or transferable between languages through generic adaption
-2. Must be documented in piece of academic research, preferably available online
+1. Must be applicable to all languages, or transferable between languages through generic adaptation
+2. Must be documented in piece of academic research, available online
 3. Must have a reasonably performant implementation
 
 ## Tests
@@ -16,7 +16,7 @@ Applicability — Modified by a localized grade modifier.
 
 [Explanation](https://en.wikipedia.org/wiki/Automated_readability_index) — Yields an approximate representation of the grade level needed to comprehend the text.
 
-[Source](https://apps.dtic.mil/dtic/tr/fulltext/u2/667273.pdf) —  Senter, R.J.; Smith, E.A. (November 1967). "Automated Readability Index". Wright-Patterson Air Force Base: iii. AMRL-TR-6620.
+[Source](https://apps.dtic.mil/dtic/tr/fulltext/u2/667273.pdf) — Senter, R.J.; Smith, E.A. (November 1967). "Automated Readability Index". Wright-Patterson Air Force Base: iii. AMRL-TR-6620.
 
 ### Flesch Reading Ease
 
@@ -41,8 +41,11 @@ Source — Kincaid, J.P., Fishburne, R.P., Rogers, R.L., & Chissom, B.S. (1975).
 ### Coleman-Liau Grade-level
 
 Applicability — Modified by a localized grade modifier.
+
 [Implementation](https://github.com/words/coleman-liau) — Basic formula: Average number of sentences, words, letters.
+
 [Explanation](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_Reading_Ease) — Yields an approximate representation of the grade level needed to comprehend the text.
+
 Source — Coleman, Meri; and Liau, T. L. (1975); A computer readability formula designed for machine scoring, Journal of Applied Psychology, Vol. 60, pp. 283–284.
 
 ### Simple Measure of Gobbledygook
@@ -58,8 +61,11 @@ Applicability — Modified by a localized grade modifier.
 ### Lesbarhetsindex
 
 Applicability — Generally relevant.
+
 [Implementation](./src/computors.js) — Basic formula: Total words, number of sentences, number of long words (more than 6 characters).
+
 [Explanation](https://readable.com/blog/how-can-lix-and-rix-help-score-readability-for-non-english-content/) — Yields an approximate estimation of the years of education needed to understand a piece of writing.
+
 Source — Björnsson, C. H. (1968). Läsbarhet. Stockholm: Liber.
 
 ### Anderson's Readability Index
@@ -76,7 +82,7 @@ Applicability — Generally relevant.
 
 ### Paragraphs
 
-When highlighting paragraphs, the method is plainly iteration through and wrapping each detected paragraph in `p`-tags to preserve whitespaces and line-breaks.
+When highlighting paragraphs, the method is plain iteration through and wrapping each detected paragraph in `p`-tags to preserve whitespaces and line-breaks.
 
 ### Sentences
 
