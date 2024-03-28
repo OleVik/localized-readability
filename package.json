@@ -1,7 +1,7 @@
 {
   "name": "localized-readability",
   "description": "Generate readability statistics with localized options.",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "Ole Vik <git@olevik.net> (https://olevik.me/)",
   "bugs": "https://github.com/OleVik/localized-readability/issues",
   "contributors": [
